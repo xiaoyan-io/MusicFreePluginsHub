@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to Cloudflare Pages (dev)
 
 on:
   push:
@@ -13,8 +13,11 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
+      deployments: write        # 必须有这个，否则 403
+      id-token: write           # GitHub 新部署权限需要
 
     steps:
       - name: Checkout
@@ -37,3 +40,4 @@ jobs:
           projectName: ${{ secrets.CLOUDFLARE_PAGES_PROJECT_NAME }}
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: dev             # 指定部署 dev 分支
