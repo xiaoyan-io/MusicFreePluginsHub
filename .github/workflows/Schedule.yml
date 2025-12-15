@@ -21,6 +21,9 @@ jobs:
       - name: Run Python Script
         run: uv run src/main.py
 
+      - name: Validate output JSON
+        run: uv run python -m json.tool dist/plugins.json
+
       - name: Commit and Push
         run: |
           git config user.name github-actions[bot]

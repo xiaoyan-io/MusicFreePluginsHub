@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "generated_at": "2025-12-15T02:07:48+00:00",
+  "runner": {
+    "strict": false
+  },
+  "sources": [],
+  "plugins": {
+    "total": 2,
+    "download_ok": 2,
+    "download_failed": 0,
+    "failed": []
+  }
+}

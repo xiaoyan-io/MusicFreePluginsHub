@@ -28,6 +28,20 @@ https://apimusic.lhbro.asia/plugins.json
 - Actions 可以手动触发，或自动执行，生成 plugins.json 文件。
 - 在 `Cloudflare Pages`、`Vercel`、`GitHub Pages`、`Netlify` 等平台导入部署仓库后可直接获取 `plugins.json` 的链接。可绑定自定义域名，以便在国内访问。
 
+## 本地构建基线（无 sources 也可独立运行）
+
+在极端情况下只依赖 `singles` 也要能成功构建。推荐按以下步骤本地验证：
+
+```bash
+source ~/.cargo/env
+RUSTUP_TOOLCHAIN=1.82.0 uv sync --python 3.12 --all-extras --dev
+uv run scripts/checker.py --strict   # 可选，预检源/插件
+uv run src/main.py
+uv run python -m json.tool dist/plugins.json
+```
+
+提示：`pythonmonkey` 在 Python 3.14 会因 `ast.Str` 兼容性构建失败，建议使用 `--python 3.12`。
+
 ## 部署到 Cloudflare Pages（推荐）
 
 1. 在仓库的 Settings → Secrets and variables → Actions 配置三项：
