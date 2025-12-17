@@ -1,0 +1,96 @@
+{
+  "generated_at": "2025-12-17T14:47:05+00:00",
+  "strict": true,
+  "sources": [],
+  "plugins": {
+    "total": 5,
+    "items": [
+      {
+        "name": "W电台",
+        "url": "https://cdn.jsdelivr.net/gh/GuGuMur/MusicFreePlugin-NeteaseRadio@master/dist/plugin.js",
+        "origin": "singles",
+        "ok": true,
+        "status_code": 200,
+        "latency_ms": 547,
+        "size_bytes": 8305,
+        "hash_sha1": "4a0cb74846d445e1931a2f548e146377c479a1e8",
+        "content_type": "application/javascript; charset=utf-8",
+        "auto_next_score": 0.0,
+        "auto_next_support": false
+      },
+      {
+        "name": "W音乐",
+        "url": "https://raw.githubusercontent.com/ThomasBy2025/musicfree/refs/heads/main/plugins/wy.js",
+        "origin": "singles",
+        "ok": true,
+        "status_code": 200,
+        "latency_ms": 540,
+        "size_bytes": 24620,
+        "hash_sha1": "a180701cd6cbe3c2630e2acb332452428d1c1e23",
+        "content_type": "text/plain; charset=utf-8",
+        "auto_next_score": 0.0,
+        "auto_next_support": false
+      },
+      {
+        "name": "网易云电台(稳定版)",
+        "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_radio_stable.js",
+        "origin": "singles",
+        "ok": false,
+        "status_code": 404,
+        "latency_ms": 550,
+        "size_bytes": 14,
+        "hash_sha1": "78fb38f212fa49029aff24c669a39648d9b4e68b",
+        "content_type": "text/plain; charset=utf-8",
+        "auto_next_score": 0.0,
+        "auto_next_support": false,
+        "error": {
+          "message": "状态码异常或不可达"
+        }
+      },
+      {
+        "name": "网易云音乐(稳定版)",
+        "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_music_stable.js",
+        "origin": "singles",
+        "ok": false,
+        "status_code": 404,
+        "latency_ms": 558,
+        "size_bytes": 14,
+        "hash_sha1": "78fb38f212fa49029aff24c669a39648d9b4e68b",
+        "content_type": "text/plain; charset=utf-8",
+        "auto_next_score": 0.0,
+        "auto_next_support": false,
+        "error": {
+          "message": "状态码异常或不可达"
+        }
+      },
+      {
+        "name": "GD Studio Stable AutoNext",
+        "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/gdstudio-auto-next.js",
+        "origin": "singles",
+        "ok": false,
+        "status_code": 404,
+        "latency_ms": 546,
+        "size_bytes": 14,
+        "hash_sha1": "78fb38f212fa49029aff24c669a39648d9b4e68b",
+        "content_type": "text/plain; charset=utf-8",
+        "auto_next_score": 0.0,
+        "auto_next_support": false,
+        "error": {
+          "message": "状态码异常或不可达"
+        }
+      }
+    ],
+    "ok": 2,
+    "failed": 3
+  },
+  "filtered_plugins": [
+    {
+      "name": "W电台",
+      "url": "https://cdn.jsdelivr.net/gh/GuGuMur/MusicFreePlugin-NeteaseRadio@master/dist/plugin.js"
+    },
+    {
+      "name": "W音乐",
+      "url": "https://raw.githubusercontent.com/ThomasBy2025/musicfree/refs/heads/main/plugins/wy.js"
+    }
+  ]
+}
