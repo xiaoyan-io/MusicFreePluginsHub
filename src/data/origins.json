@@ -23,6 +23,21 @@
       "name": "W音乐",
       "url": "https://raw.githubusercontent.com/ThomasBy2025/musicfree/refs/heads/main/plugins/wy.js",
       "version": "0.2.3"
+    },
+    {
+      "name": "GD Studio Stable AutoNext",
+      "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/gdstudio-auto-next.js",
+      "version": "0.0.1"
+    },
+    {
+      "name": "网易云电台(稳定版)",
+      "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_radio_stable.js",
+      "version": "1.0.0"
+    },
+    {
+      "name": "网易云音乐(稳定版)",
+      "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_music_stable.js",
+      "version": "1.0.0"
     }
   ],
   "dead_singles_backup": [
