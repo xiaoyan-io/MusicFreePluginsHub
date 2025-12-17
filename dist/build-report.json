@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-17T14:58:51+00:00",
+  "generated_at": "2025-12-17T15:32:56+00:00",
   "strict": true,
   "sources": [
     {
@@ -59,26 +59,130 @@
     },
     {
       "url": "https://13413.kstore.space/musicfree.json",
-      "ok": false,
-      "status_code": null,
-      "latency_ms": null,
-      "error": {
-        "type": "ConnectError",
-        "message": "[Errno -5] No address associated with hostname",
-        "url": "https://13413.kstore.space/musicfree.json"
-      }
+      "ok": true,
+      "status_code": 200,
+      "latency_ms": 1794,
+      "plugin_count": 6
     }
   ],
   "plugins": {
-    "total": 5,
+    "total": 9,
     "items": [
+      {
+        "name": "网易",
+        "url": "http://music.haitangw.net/cqapi/wy.js",
+        "origin": "https://13413.kstore.space/musicfree.json",
+        "ok": false,
+        "status_code": null,
+        "latency_ms": null,
+        "size_bytes": 0,
+        "hash_sha1": null,
+        "content_type": "",
+        "auto_next_score": 0.0,
+        "auto_next_support": false,
+        "error": {
+          "type": "ConnectTimeout",
+          "message": "",
+          "url": "http://music.haitangw.net/cqapi/wy.js"
+        }
+      },
+      {
+        "name": "酷我",
+        "url": "http://music.haitangw.net/cqapi/kw.js",
+        "origin": "https://13413.kstore.space/musicfree.json",
+        "ok": false,
+        "status_code": null,
+        "latency_ms": null,
+        "size_bytes": 0,
+        "hash_sha1": null,
+        "content_type": "",
+        "auto_next_score": 0.0,
+        "auto_next_support": false,
+        "error": {
+          "type": "ConnectTimeout",
+          "message": "",
+          "url": "http://music.haitangw.net/cqapi/kw.js"
+        }
+      },
+      {
+        "name": "酷我",
+        "url": "http://music.haitangw.net/cqapi/kg.js",
+        "origin": "https://13413.kstore.space/musicfree.json",
+        "ok": false,
+        "status_code": null,
+        "latency_ms": null,
+        "size_bytes": 0,
+        "hash_sha1": null,
+        "content_type": "",
+        "auto_next_score": 0.0,
+        "auto_next_support": false,
+        "error": {
+          "type": "ConnectTimeout",
+          "message": "",
+          "url": "http://music.haitangw.net/cqapi/kg.js"
+        }
+      },
+      {
+        "name": "qq",
+        "url": "http://music.haitangw.net/cqapi/qq.js",
+        "origin": "https://13413.kstore.space/musicfree.json",
+        "ok": false,
+        "status_code": null,
+        "latency_ms": null,
+        "size_bytes": 0,
+        "hash_sha1": null,
+        "content_type": "",
+        "auto_next_score": 0.0,
+        "auto_next_support": false,
+        "error": {
+          "type": "ConnectTimeout",
+          "message": "",
+          "url": "http://music.haitangw.net/cqapi/qq.js"
+        }
+      },
+      {
+        "name": "bilibili",
+        "url": "https://gitee.com/maotoumao/MusicFreePlugins/raw/v0.1/dist/bilibili/index.js",
+        "origin": "https://13413.kstore.space/musicfree.json",
+        "ok": false,
+        "status_code": null,
+        "latency_ms": null,
+        "size_bytes": 0,
+        "hash_sha1": null,
+        "content_type": "",
+        "auto_next_score": 0.0,
+        "auto_next_support": false,
+        "error": {
+          "type": "ConnectTimeout",
+          "message": "",
+          "url": "https://gitee.com/maotoumao/MusicFreePlugins/raw/v0.1/dist/bilibili/index.js"
+        }
+      },
+      {
+        "name": "mg",
+        "url": "http://music.haitangw.net/cqapi/xiaomi.js",
+        "origin": "https://13413.kstore.space/musicfree.json",
+        "ok": false,
+        "status_code": null,
+        "latency_ms": null,
+        "size_bytes": 0,
+        "hash_sha1": null,
+        "content_type": "",
+        "auto_next_score": 0.0,
+        "auto_next_support": false,
+        "error": {
+          "type": "ConnectTimeout",
+          "message": "",
+          "url": "http://music.haitangw.net/cqapi/xiaomi.js"
+        }
+      },
       {
         "name": "W电台",
         "url": "https://cdn.jsdelivr.net/gh/GuGuMur/MusicFreePlugin-NeteaseRadio@master/dist/plugin.js",
         "origin": "singles",
         "ok": true,
         "status_code": 200,
-        "latency_ms": 51,
+        "latency_ms": 565,
         "size_bytes": 8305,
         "hash_sha1": "4a0cb74846d445e1931a2f548e146377c479a1e8",
         "content_type": "application/javascript; charset=utf-8",
@@ -91,7 +195,7 @@
         "origin": "singles",
         "ok": true,
         "status_code": 200,
-        "latency_ms": 543,
+        "latency_ms": 516,
         "size_bytes": 24620,
         "hash_sha1": "a180701cd6cbe3c2630e2acb332452428d1c1e23",
         "content_type": "text/plain; charset=utf-8",
@@ -104,42 +208,16 @@
         "origin": "singles",
         "ok": true,
         "status_code": 200,
-        "latency_ms": 277,
+        "latency_ms": 257,
         "size_bytes": 1375,
         "hash_sha1": "58e2fb049fa533e687ec36110fce079803684012",
         "content_type": "text/plain; charset=utf-8",
         "auto_next_score": 0.14,
         "auto_next_support": true
-      },
-      {
-        "name": "网易云电台(稳定版)",
-        "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_radio_stable.js",
-        "origin": "singles",
-        "ok": true,
-        "status_code": 200,
-        "latency_ms": 286,
-        "size_bytes": 3674,
-        "hash_sha1": "138c52fb243a61f591a92ed363600993c0256873",
-        "content_type": "text/plain; charset=utf-8",
-        "auto_next_score": 0.0,
-        "auto_next_support": false
-      },
-      {
-        "name": "网易云音乐(稳定版)",
-        "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_music_stable.js",
-        "origin": "singles",
-        "ok": true,
-        "status_code": 200,
-        "latency_ms": 425,
-        "size_bytes": 2046,
-        "hash_sha1": "56059d24a9768ef3023456aa6b7e8110cb065620",
-        "content_type": "text/plain; charset=utf-8",
-        "auto_next_score": 0.0,
-        "auto_next_support": false
       }
     ],
-    "ok": 5,
-    "failed": 0
+    "ok": 3,
+    "failed": 6
   },
   "filtered_plugins": [
     {
@@ -153,14 +231,6 @@
     {
       "name": "GD Studio Stable AutoNext",
       "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/gdstudio-auto-next.js"
-    },
-    {
-      "name": "网易云电台(稳定版)",
-      "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_radio_stable.js"
-    },
-    {
-      "name": "网易云音乐(稳定版)",
-      "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_music_stable.js"
     }
   ]
 }
