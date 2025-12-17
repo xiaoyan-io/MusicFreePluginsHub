@@ -1,7 +1,74 @@
 {
-  "generated_at": "2025-12-17T14:47:05+00:00",
+  "generated_at": "2025-12-17T14:58:51+00:00",
   "strict": true,
-  "sources": [],
+  "sources": [
+    {
+      "url": "https://gitee.com/maotoumao/MusicFreePlugins/raw/master/plugins.json",
+      "ok": false,
+      "status_code": null,
+      "latency_ms": null,
+      "error": {
+        "type": "ConnectTimeout",
+        "message": "",
+        "url": "https://gitee.com/maotoumao/MusicFreePlugins/raw/master/plugins.json"
+      }
+    },
+    {
+      "url": "https://mf.ikunshare.com/plugins.json",
+      "ok": false,
+      "status_code": null,
+      "latency_ms": null,
+      "error": {
+        "type": "ConnectError",
+        "message": "[Errno -5] No address associated with hostname",
+        "url": "https://mf.ikunshare.com/plugins.json"
+      }
+    },
+    {
+      "url": "https://gitee.com/kevinr/tvbox/raw/master/musicfree/plugins.json",
+      "ok": false,
+      "status_code": null,
+      "latency_ms": null,
+      "error": {
+        "type": "ConnectTimeout",
+        "message": "",
+        "url": "https://gitee.com/kevinr/tvbox/raw/master/musicfree/plugins.json"
+      }
+    },
+    {
+      "url": "https://gitee.com/xujin621/soul-yin-download-sound/attach_files/2093957/download/music.json",
+      "ok": false,
+      "status_code": null,
+      "latency_ms": null,
+      "error": {
+        "type": "ConnectTimeout",
+        "message": "",
+        "url": "https://gitee.com/xujin621/soul-yin-download-sound/attach_files/2093957/download/music.json"
+      }
+    },
+    {
+      "url": "http://music.haitangw.net/元力音乐.json",
+      "ok": false,
+      "status_code": null,
+      "latency_ms": null,
+      "error": {
+        "type": "ConnectTimeout",
+        "message": "",
+        "url": "http://music.haitangw.net/%E5%85%83%E5%8A%9B%E9%9F%B3%E4%B9%90.json"
+      }
+    },
+    {
+      "url": "https://13413.kstore.space/musicfree.json",
+      "ok": false,
+      "status_code": null,
+      "latency_ms": null,
+      "error": {
+        "type": "ConnectError",
+        "message": "[Errno -5] No address associated with hostname",
+        "url": "https://13413.kstore.space/musicfree.json"
+      }
+    }
+  ],
   "plugins": {
     "total": 5,
     "items": [
@@ -11,7 +78,7 @@
         "origin": "singles",
         "ok": true,
         "status_code": 200,
-        "latency_ms": 547,
+        "latency_ms": 51,
         "size_bytes": 8305,
         "hash_sha1": "4a0cb74846d445e1931a2f548e146377c479a1e8",
         "content_type": "application/javascript; charset=utf-8",
@@ -24,7 +91,7 @@
         "origin": "singles",
         "ok": true,
         "status_code": 200,
-        "latency_ms": 540,
+        "latency_ms": 543,
         "size_bytes": 24620,
         "hash_sha1": "a180701cd6cbe3c2630e2acb332452428d1c1e23",
         "content_type": "text/plain; charset=utf-8",
@@ -32,56 +99,47 @@
         "auto_next_support": false
       },
       {
+        "name": "GD Studio Stable AutoNext",
+        "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/gdstudio-auto-next.js",
+        "origin": "singles",
+        "ok": true,
+        "status_code": 200,
+        "latency_ms": 277,
+        "size_bytes": 1375,
+        "hash_sha1": "58e2fb049fa533e687ec36110fce079803684012",
+        "content_type": "text/plain; charset=utf-8",
+        "auto_next_score": 0.14,
+        "auto_next_support": true
+      },
+      {
         "name": "网易云电台(稳定版)",
         "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_radio_stable.js",
         "origin": "singles",
-        "ok": false,
-        "status_code": 404,
-        "latency_ms": 550,
-        "size_bytes": 14,
-        "hash_sha1": "78fb38f212fa49029aff24c669a39648d9b4e68b",
+        "ok": true,
+        "status_code": 200,
+        "latency_ms": 286,
+        "size_bytes": 3674,
+        "hash_sha1": "138c52fb243a61f591a92ed363600993c0256873",
         "content_type": "text/plain; charset=utf-8",
         "auto_next_score": 0.0,
-        "auto_next_support": false,
-        "error": {
-          "message": "状态码异常或不可达"
-        }
+        "auto_next_support": false
       },
       {
         "name": "网易云音乐(稳定版)",
         "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_music_stable.js",
         "origin": "singles",
-        "ok": false,
-        "status_code": 404,
-        "latency_ms": 558,
-        "size_bytes": 14,
-        "hash_sha1": "78fb38f212fa49029aff24c669a39648d9b4e68b",
+        "ok": true,
+        "status_code": 200,
+        "latency_ms": 425,
+        "size_bytes": 2046,
+        "hash_sha1": "56059d24a9768ef3023456aa6b7e8110cb065620",
         "content_type": "text/plain; charset=utf-8",
         "auto_next_score": 0.0,
-        "auto_next_support": false,
-        "error": {
-          "message": "状态码异常或不可达"
-        }
-      },
-      {
-        "name": "GD Studio Stable AutoNext",
-        "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/gdstudio-auto-next.js",
-        "origin": "singles",
-        "ok": false,
-        "status_code": 404,
-        "latency_ms": 546,
-        "size_bytes": 14,
-        "hash_sha1": "78fb38f212fa49029aff24c669a39648d9b4e68b",
-        "content_type": "text/plain; charset=utf-8",
-        "auto_next_score": 0.0,
-        "auto_next_support": false,
-        "error": {
-          "message": "状态码异常或不可达"
-        }
+        "auto_next_support": false
       }
     ],
-    "ok": 2,
-    "failed": 3
+    "ok": 5,
+    "failed": 0
   },
   "filtered_plugins": [
     {
@@ -91,6 +149,18 @@
     {
       "name": "W音乐",
       "url": "https://raw.githubusercontent.com/ThomasBy2025/musicfree/refs/heads/main/plugins/wy.js"
+    },
+    {
+      "name": "GD Studio Stable AutoNext",
+      "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/gdstudio-auto-next.js"
+    },
+    {
+      "name": "网易云电台(稳定版)",
+      "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_radio_stable.js"
+    },
+    {
+      "name": "网易云音乐(稳定版)",
+      "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/netease_music_stable.js"
     }
   ]
 }
