@@ -3126,6 +3126,7 @@ async function exploreOnlineMusic() {
     const btn = dom.loadOnlineBtn;
     const btnText = btn.querySelector(".btn-text");
     const loader = btn.querySelector(".loader");
+    const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     const showPlaylistFallback = () => {
         state.currentPlaylist = "playlist";
         renderPlaylist();
@@ -3141,7 +3142,23 @@ async function exploreOnlineMusic() {
         btnText.style.display = "none";
         loader.style.display = "inline-block";
 
-        const songs = await API.getRadarPlaylist("3778678", { limit: 50, offset: 0 });
+        let songs = [];
+        let lastError = null;
+        for (let attempt = 0; attempt < 3; attempt += 1) {
+            try {
+                songs = await API.getRadarPlaylist("3778678", { limit: 50, offset: 0 });
+                if (songs.length > 0) {
+                    break;
+                }
+            } catch (error) {
+                lastError = error;
+            }
+            await wait(700 + attempt * 500);
+        }
+
+        if (!songs.length && lastError) {
+            throw lastError;
+        }
 
         if (songs.length > 0) {
             // 将在线音乐添加到统一播放列表
