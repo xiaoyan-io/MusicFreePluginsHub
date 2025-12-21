@@ -1,4 +1,4 @@
-const CACHE_VERSION = "solara-pwa-v2";
+const CACHE_VERSION = "solara-pwa-v3";
 const CACHE_BUST = `?v=${CACHE_VERSION}`;
 const STATIC_ASSETS = [
   "/",
