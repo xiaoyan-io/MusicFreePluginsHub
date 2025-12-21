@@ -142,12 +142,12 @@
       "version": "0.1.0"
     },
     {
-      "name": "酷我_1",
+      "name": "酷我",
       "url": "http://music.haitangw.net/cqapi/kw.js",
       "version": "0.1.0"
     },
     {
-      "name": "酷我",
+      "name": "酷我_1",
       "url": "http://music.haitangw.net/cqapi/kg.js",
       "version": "0.1.0"
     },
@@ -170,6 +170,11 @@
       "name": "W音乐",
       "url": "https://raw.githubusercontent.com/ThomasBy2025/musicfree/refs/heads/main/plugins/wy.js",
       "version": "0.2.3"
+    },
+    {
+      "name": "GD Studio Stable AutoNext",
+      "url": "https://raw.githubusercontent.com/xiaoyan-io/MusicFreePluginsHub/dev/scripts/gdstudio-auto-next.js",
+      "version": "0.0.1"
     }
   ]
 }
