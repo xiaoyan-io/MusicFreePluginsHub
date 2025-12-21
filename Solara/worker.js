@@ -2,6 +2,8 @@ import decodeJpeg from "./jpeg-decoder.js";
 
 const API_BASE_URL = "https://music-api.gdstudio.xyz/api.php";
 const KUWO_HOST_PATTERN = /(^|\\.)kuwo\\.cn$/i;
+const NETEASE_HOST_PATTERN = /(^|\\.)music\\.126\\.net$/i;
+const NETEASE_ALT_HOST_PATTERN = /(^|\\.)music\\.163\\.com$/i;
 const SAFE_RESPONSE_HEADERS = [
   "content-type",
   "cache-control",
@@ -452,40 +454,58 @@ async function handlePalette(request) {
   }
 }
 
-function isAllowedKuwoHost(hostname) {
+function isAllowedAudioHost(hostname) {
   if (!hostname) return false;
-  return KUWO_HOST_PATTERN.test(hostname);
+  return KUWO_HOST_PATTERN.test(hostname) ||
+    NETEASE_HOST_PATTERN.test(hostname) ||
+    NETEASE_ALT_HOST_PATTERN.test(hostname);
 }
 
-function normalizeKuwoUrl(rawUrl) {
+function normalizeTargetUrl(rawUrl) {
   try {
     const parsed = new URL(rawUrl);
-    if (!isAllowedKuwoHost(parsed.hostname)) {
+    if (!isAllowedAudioHost(parsed.hostname)) {
       return null;
     }
     if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
       return null;
     }
-    parsed.protocol = "http:";
+    if (KUWO_HOST_PATTERN.test(parsed.hostname)) {
+      parsed.protocol = "http:";
+    }
     return parsed;
   } catch {
     return null;
   }
 }
 
-async function proxyKuwoAudio(targetUrl, request) {
-  const normalized = normalizeKuwoUrl(targetUrl);
+function pickReferer(hostname) {
+  if (KUWO_HOST_PATTERN.test(hostname)) {
+    return "https://www.kuwo.cn/";
+  }
+  if (NETEASE_HOST_PATTERN.test(hostname) || NETEASE_ALT_HOST_PATTERN.test(hostname)) {
+    return "https://music.163.com/";
+  }
+  return undefined;
+}
+
+async function proxyAudioTarget(targetUrl, request) {
+  const normalized = normalizeTargetUrl(targetUrl);
   if (!normalized) {
     return new Response("Invalid target", { status: 400 });
   }
 
+  const referer = pickReferer(normalized.hostname);
+
   const init = {
     method: request.method,
     headers: {
-      "User-Agent": request.headers.get("User-Agent") || "Mozilla/5.0",
-      "Referer": "https://www.kuwo.cn/"
+      "User-Agent": request.headers.get("User-Agent") || "Mozilla/5.0"
     }
   };
+  if (referer) {
+    init.headers.Referer = referer;
+  }
 
   const rangeHeader = request.headers.get("Range");
   if (rangeHeader) {
@@ -548,7 +568,7 @@ async function handleProxy(request) {
   const url = new URL(request.url);
   const target = url.searchParams.get("target");
   if (target) {
-    return proxyKuwoAudio(target, request);
+    return proxyAudioTarget(target, request);
   }
   return proxyApiRequest(url, request);
 }

@@ -373,11 +373,20 @@ function buildAudioProxyUrl(url) {
 
     try {
         const parsedUrl = new URL(url, window.location.href);
-        if (parsedUrl.protocol === "https:") {
+        const proxyPath = new URL(API.baseUrl, window.location.href).pathname;
+        if (parsedUrl.origin === window.location.origin &&
+            parsedUrl.pathname === proxyPath &&
+            parsedUrl.searchParams.has("target")) {
             return parsedUrl.toString();
         }
 
-        if (parsedUrl.protocol === "http:" && /(^|\.)kuwo\.cn$/i.test(parsedUrl.hostname)) {
+        const audioHostPatterns = [
+            /(^|\.)kuwo\.cn$/i,
+            /(^|\.)music\.126\.net$/i,
+            /(^|\.)music\.163\.com$/i,
+        ];
+        const shouldProxy = audioHostPatterns.some((pattern) => pattern.test(parsedUrl.hostname));
+        if (shouldProxy) {
             return `${API.baseUrl}?target=${encodeURIComponent(parsedUrl.toString())}`;
         }
 
