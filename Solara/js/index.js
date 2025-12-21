@@ -2898,8 +2898,11 @@ async function playSong(song, options = {}) {
         const candidateAudioUrls = Array.from(
             new Set([proxiedAudioUrl, preferredAudioUrl, originalAudioUrl].filter(Boolean))
         );
+        const finalCandidates = isMobileView && proxiedAudioUrl
+            ? [proxiedAudioUrl]
+            : candidateAudioUrls;
 
-        const primaryAudioUrl = candidateAudioUrls[0] || originalAudioUrl;
+        const primaryAudioUrl = finalCandidates[0] || originalAudioUrl;
 
         if (proxiedAudioUrl && proxiedAudioUrl !== originalAudioUrl) {
             debugLog(`音频地址已通过代理转换为 HTTPS: ${proxiedAudioUrl}`);
@@ -2927,20 +2930,20 @@ async function playSong(song, options = {}) {
         let lastAudioError = null;
         let usedFallbackAudio = false;
 
-        for (const candidateUrl of candidateAudioUrls) {
+        for (const candidateUrl of finalCandidates) {
             dom.audioPlayer.src = candidateUrl;
             dom.audioPlayer.load();
 
             try {
                 await waitForAudioReady(dom.audioPlayer);
                 selectedAudioUrl = candidateUrl;
-                usedFallbackAudio = candidateUrl !== primaryAudioUrl && candidateAudioUrls.length > 1;
+                usedFallbackAudio = candidateUrl !== primaryAudioUrl && finalCandidates.length > 1;
                 break;
             } catch (error) {
                 lastAudioError = error;
                 console.warn('音频元数据加载异常', error);
 
-                if (candidateUrl === primaryAudioUrl && candidateAudioUrls.length > 1) {
+                if (candidateUrl === primaryAudioUrl && finalCandidates.length > 1) {
                     debugLog('主音频地址加载失败，尝试使用备用地址');
                 }
             }
@@ -3408,7 +3411,7 @@ async function downloadSong(song, quality = "320") {
                 debugLog(`下载链接由 HTTP 升级为 HTTPS: ${preferredAudioUrl}`);
             }
 
-            const downloadUrl = proxiedAudioUrl || preferredAudioUrl || audioData.url;
+            const downloadUrl = (isMobileView && proxiedAudioUrl) || proxiedAudioUrl || preferredAudioUrl || audioData.url;
 
             const link = document.createElement("a");
             link.href = downloadUrl;
