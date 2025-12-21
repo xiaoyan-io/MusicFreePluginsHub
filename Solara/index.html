@@ -255,14 +255,12 @@
 <!-- 调试信息容器 -->
 <div id="debugInfo" class="debug-info"></div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="js/index.js"></script>
+<script src="js/index.js" defer></script>
 <script>
     if (window.__SOLARA_IS_MOBILE) {
         const mobileScript = document.createElement('script');
         mobileScript.src = 'js/mobile.js';
-        mobileScript.async = false;
-        mobileScript.defer = false;
+        mobileScript.defer = true;
         document.body.appendChild(mobileScript);
     }
 </script>
