@@ -1,4 +1,4 @@
-import decodeJpeg from "./functions/lib/vendor/jpeg-decoder.js";
+import decodeJpeg from "./jpeg-decoder.js";
 
 const API_BASE_URL = "https://music-api.gdstudio.xyz/api.php";
 const KUWO_HOST_PATTERN = /(^|\\.)kuwo\\.cn$/i;
