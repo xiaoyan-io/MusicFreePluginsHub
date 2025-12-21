@@ -631,6 +631,7 @@ const state = {
     audioReadyForPalette: true,
     currentGradient: '',
     isMobileInlineLyricsOpen: false,
+    pendingUserPlay: false,
 };
 
 let sourceMenuPositionFrame = null;
@@ -1842,6 +1843,27 @@ window.addEventListener("load", setupInteractions);
 dom.audioPlayer.addEventListener("ended", autoPlayNext);
 
 function setupInteractions() {
+    if (dom.audioPlayer) {
+        dom.audioPlayer.setAttribute("playsinline", "");
+        dom.audioPlayer.setAttribute("webkit-playsinline", "");
+    }
+
+    const resumePendingPlayback = () => {
+        if (!state.pendingUserPlay) {
+            return;
+        }
+        state.pendingUserPlay = false;
+        const playPromise = dom.audioPlayer.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(() => {
+                state.pendingUserPlay = true;
+            });
+        }
+    };
+
+    document.addEventListener("click", resumePendingPlayback, { passive: true });
+    document.addEventListener("touchstart", resumePendingPlayback, { passive: true });
+
     function ensureQualityMenuPortal() {
         if (!dom.playerQualityMenu || !document.body || !isMobileView) {
             return;
@@ -2942,6 +2964,12 @@ async function playSong(song, options = {}) {
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
                     console.error('播放失败:', error);
+                    const message = String(error?.message || "");
+                    if (error?.name === "NotAllowedError" || /gesture|allow|notallowed/i.test(message)) {
+                        state.pendingUserPlay = true;
+                        showNotification('请再点击一次播放以启用音频', 'warning');
+                        return;
+                    }
                     showNotification('播放失败，请检查网络连接', 'error');
                 });
             } else {
