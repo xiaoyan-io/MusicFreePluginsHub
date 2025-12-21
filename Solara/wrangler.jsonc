@@ -1,0 +1,9 @@
+{
+  "name": "solara",
+  "compatibility_date": "2025-12-21",
+  "main": "worker.js",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  }
+}
