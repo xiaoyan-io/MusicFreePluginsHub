@@ -3126,6 +3126,15 @@ async function exploreOnlineMusic() {
     const btn = dom.loadOnlineBtn;
     const btnText = btn.querySelector(".btn-text");
     const loader = btn.querySelector(".loader");
+    const showPlaylistFallback = () => {
+        state.currentPlaylist = "playlist";
+        renderPlaylist();
+        if (isMobileView) {
+            openMobilePanel("playlist");
+        } else {
+            switchMobileView("playlist");
+        }
+    };
 
     try {
         btn.disabled = true;
@@ -3146,10 +3155,12 @@ async function exploreOnlineMusic() {
             debugLog(`加载探索雷达播放列表成功: ${songs.length} 首歌曲`);
         } else {
             showNotification("未找到在线音乐", "error");
+            showPlaylistFallback();
         }
     } catch (error) {
         console.error("加载在线音乐失败:", error);
         showNotification("加载失败，请稍后重试", "error");
+        showPlaylistFallback();
     } finally {
         btn.disabled = false;
         btnText.style.display = "flex";
